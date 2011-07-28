@@ -41,6 +41,8 @@ describe Twitter::API do
           :proxy => 'http://erik:sekret@proxy.example.com:8080',
           :search_endpoint => 'http://google.com/',
           :user_agent => 'Custom User Agent',
+          :timeout => 10,
+          :open_timeout => 10,
         }
       end
 

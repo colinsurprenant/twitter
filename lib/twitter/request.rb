@@ -26,6 +26,9 @@ module Twitter
     # Perform an HTTP request
     def request(method, path, options, format)
       response = connection(format).send(method) do |request|
+        request.options[:timeout] = timeout
+        request.options[:open_timeout] = open_timeout
+
         case method.to_sym
         when :get, :delete
           request.url(formatted_path(path, format), options)

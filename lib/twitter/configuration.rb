@@ -15,7 +15,9 @@ module Twitter
       :oauth_token_secret,
       :proxy,
       :search_endpoint,
-      :user_agent].freeze
+      :user_agent,
+      :timeout,
+      :open_timeout].freeze
 
     # The adapter that will be used to connect if none is set
     DEFAULT_ADAPTER = :net_http
@@ -60,6 +62,9 @@ module Twitter
 
     DEFAULT_GATEWAY = nil
 
+    DEFAULT_OPEN_TIMEOUT = 30
+    DEFAULT_TIMEOUT = 30
+
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -93,6 +98,8 @@ module Twitter
       self.search_endpoint    = DEFAULT_SEARCH_ENDPOINT
       self.user_agent         = DEFAULT_USER_AGENT
       self.gateway            = DEFAULT_GATEWAY
+      self.timeout            = DEFAULT_TIMEOUT
+      self.open_timeout       = DEFAULT_OPEN_TIMEOUT
       self
     end
   end
